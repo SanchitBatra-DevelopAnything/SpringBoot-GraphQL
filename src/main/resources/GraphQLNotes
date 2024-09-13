@@ -1,0 +1,20 @@
+GQL Works with schema (schema.graphqls file in graphQL folder)
+2 types of commands : Query(R) & Mutation(CUD)
+
+type User {
+    field:datatype, (! means it cant be null),
+    field2:datatype
+    mappings , []-> this is an array
+}
+
+mutations me CUD , query me R
+
+query and mutations are mapped through controllers.
+
+@MutationMapping , function name should be same as Mutation name you gave in file of schema.
+
+@MutationMapping(name = "actual mutation name in the graphqls file")
+if function name cant be same as mutation name mentioned in schema file.
+
+Instead of @ResponseBody se poori entity bne
+@Argument se ek ek key map ho skti hai
