@@ -15,7 +15,7 @@ public class User {
     private String name;
     private String email;
     private String phone;
-    private String passsword;
+    private String password;
 
     @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL , orphanRemoval = true)
     private List<Order> orders = new ArrayList<>();
@@ -30,7 +30,7 @@ public class User {
         this.name = name;
         this.email = email;
         this.phone = phone;
-        this.passsword = passsword;
+        this.password = passsword;
     }
 
     public int getUserId() {
@@ -66,11 +66,11 @@ public class User {
     }
 
     public String getPasssword() {
-        return passsword;
+        return password;
     }
 
     public void setPasssword(String passsword) {
-        this.passsword = passsword;
+        this.password = passsword;
     }
 
 

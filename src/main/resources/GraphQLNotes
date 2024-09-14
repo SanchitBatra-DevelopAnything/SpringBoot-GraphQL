@@ -97,3 +97,10 @@ Ese karke kisi bhi format me kuchh bhi data nikaala jaa sakta hai :D which saves
 
 
 Q.) HOW TO TEST THROUGH POSTMAN?
+File-->New-->GraphQL
+
+POST
+
+http://localhost:port/graphql pe bhejdo sab query mutation vgera
+
+spring.graphql.path = /customPath can be given instead of /graphql
