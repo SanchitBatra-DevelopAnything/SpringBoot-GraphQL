@@ -18,3 +18,82 @@ if function name cant be same as mutation name mentioned in schema file.
 
 Instead of @ResponseBody se poori entity bne
 @Argument se ek ek key map ho skti hai
+
+spring.graphql.graphiql.enabled=true
+localhost://port/graphiql , opens app to test your API endpoints.:D
+
+
+How you read data from client?
+
+query{
+  getUsers{
+    name
+  }
+}
+
+means getUsers query chalaani hai , and bas response me name chahiye user ka nothing else.
+
+name property came from the type user you defined in schema.. not the property name of user class
+make sure they are always same to avoid confusions.
+
+
+mutation{
+createUser(
+    name : "Sanchit Batra",
+    aise bhejo Arguments.
+){
+    name , userId chahiye response me , hence saving bandwidth , poora User nahi mangwaara mai wapas.
+}
+}
+}
+
+
+Request:
+
+mutation{
+  createUser(name: "Sanchit" , email : "batrasanchit96@gmail",
+  phone:"8585988825" , password: "PasswordHere"){
+    name , userId
+  }
+}
+
+Response :
+
+{
+  "data": {
+    "createUser": {
+      "name": "Sanchit",
+      "userId": "1"
+    }
+  }
+}
+
+
+Q.) HOW TO CHECK Orders of a user?
+
+query { --> Run a Query
+    getUsers { --> getUsers query
+        name , --> Give name and orders in response ,
+        orders { --> I WANT below fields associated to this orders section
+            //orders me kya chahiye?
+            orderDetail ,
+            address ,
+            price
+        }
+    }
+}
+
+query {
+    getOrders {
+        orderDetail,
+        price,
+        user {
+            name
+        }
+    }
+}
+
+Ese karke kisi bhi format me kuchh bhi data nikaala jaa sakta hai :D which saves a huge amount of bandwidth
+
+
+Q.) HOW TO TEST THROUGH POSTMAN?

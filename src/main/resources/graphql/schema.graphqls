@@ -8,7 +8,7 @@ type User{
 }
 
 type Order{
-    orderID:ID!,
+    orderId:ID!,
     orderDetail:String,
     address:String,
     price:Int
@@ -18,7 +18,7 @@ type Order{
 type Mutation{
     createUser(name:String , phone:String , email:String , password:String):User
     deleteUser(userId:ID!):Boolean
-    createOrder(orderDetail:String,address:String,price:Int,userId:ID!):Order
+    createOrder(orderDetail:String,address:String,price:Int,userId:Int!):Order
     deleteOrder(orderId:ID!):Boolean
 }
 
